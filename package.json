@@ -4,7 +4,7 @@
     "*.css"
   ],
   "version": "1.0.0",
-  "description": "Minimalist Webpack 5 Boilerplate",
+  "description": "Minimalist Webpack 5 Typescript Boilerplate",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --config webpack/webpack.config.dev.js",
