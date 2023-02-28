@@ -1,8 +1,8 @@
-# 📦 Minimalist Webpack 5 Boilerplate
+# 📦 Minimalist Webpack 5 Typescript Boilerplate
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Minimalist webpack 5 setup using PostCSS
+Minimalist webpack 5 setup using Typescript and PostCSS
 
 ## Features
 
@@ -10,26 +10,32 @@ Minimalist webpack 5 setup using PostCSS
 
     - This Setup is only configured to copy assets files (images, fonts...) to the dist folder. Literally the entire contents of the Static folder are copied. The path for External resources (from the Static folder) that you specify in html, css and js must be specified as relative to the dist folder
 
-    # Javascript
-        --Production mode: js minify, tree shaking, remove comments
-        --Development mode: source map, Live Server
-        --Both: default Bundle splitting (all npm scripts in one vendor.js file, all my .js files in one bundle, asynchronous modules each in its own bundle)
+Typescript & Javascript
 
-    # CSS
+        -Production mode: code minify, tree shaking, remove comments
+        -Development mode: source map, Live Server
+        -Both: typescript support, default Bundle splitting (all npm scripts in one vendor.js file, all my .ts files in one bundle, asynchronous modules each in its own bundle)
+
+CSS
+
         css-loader                      //allows Wabpack handling .css files
         css-minimizer-webpack-plugin    //minify css
         mini-css-extract-plugin         //final css bundled file inserts into <head>
         postcss-loader  & postcss       //enable PostCSS
         postcss-preset-env              //autoprefixer &  transform new css properties that are not supported in some browsers (specified in BroswerList) into fallbacks
 
-        --all css files will be bundled into one separate file and added to <head>
-        --external resources from the .css file Webpack will not resolve (you specify the path as from the dist folder)
-        --production phase: css code will be minified & transform new css properties that are not supported in some browsers (specified in BroswerList) into fallbacks
-        --normalize is not set
+        -all css files will be bundled into one separate file and added to <head>
+        -external resources from the .css file Webpack will not resolve (you specify the path as from the dist folder)
+        -production phase: css code will be minified & transform new css properties that are not supported in some browsers (specified in BroswerList) into fallbacks
+        -normalize or reset is not set
 
 
-    NOTE: Webpack processes only those files that we list in index.js (entry point), Webpack will not touch other files that you add manually to template.html.
 
+
+## Prerequisites
+
+- [NodeJS](https://nodejs.org/en/)
+- [NPM](https://www.npmjs.com/)
 
 
 ## Installation
@@ -63,8 +69,8 @@ src
 └── styles
 │    └── main.css
 └── scripts
-│    └── main.js
-├── index.js
+│    └── main.ts
+├── index.ts
 public
 ├── assets
 └── template.html
@@ -82,8 +88,9 @@ public
 - [`webpack-bundle-analyzer`](https://github.com/webpack-contrib/webpack-bundle-analyzer) - Visualize size of webpack output files
 - [`webpack-bundle-analyzer`](https://github.com/unjs/webpackbar) - Display elegant progress bar while building
 
-### Loaders
 
+### Loaders
+- [`ts-loader`](https://github.com/TypeStrong/ts-loader) - TypeScript loader for webpack
 - [`css-loader`](https://webpack.js.org/loaders/css-loader/) - Resolve CSS imports
 - [`postcss-loader`](https://webpack.js.org/loaders/postcss-loader/) - Process CSS with PostCSS
   - [`postcss-preset-env`](https://www.npmjs.com/package/postcss-preset-env) - Sensible defaults for PostCSS
@@ -103,11 +110,3 @@ public
 - 'not dead'
 - 'not ie <= 11'
 - 'not op_mini all'
-
-
-### Linters
-
-- [`eslint`](https://github.com/eslint/eslint) - Enforce styleguide across application
-- [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) - Implement prettier rules
-  - - [`prettier`](https://github.com/prettier/prettier) - Dependency for `prettier-webpack-plugin` plugin
-- [`eslint-import-resolver-webpack`](https://github.com/benmosher/eslint-plugin-import/tree/master/resolvers/webpack) - Throw exceptions for import/export in webpack

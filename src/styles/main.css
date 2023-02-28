@@ -9,3 +9,7 @@
 .test h1 {
   font-family: 'Courier New', monospace;
 }
+
+.test h1 span {
+  color: rgb(27, 116, 233);
+}

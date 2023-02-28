@@ -10,7 +10,7 @@ module.exports = {
     target: 'web',
 
     //path to the .js file from where webpack starts building a dependency graph
-    entry: path.resolve(__dirname, "../src/index.js"),
+    entry: path.resolve(__dirname, "../src/index.ts"),
 
 
     output: {
@@ -22,7 +22,6 @@ module.exports = {
         maxEntrypointSize: 512000,
         maxAssetSize: 512000
     },
-
 
     module: {
         rules: [
@@ -40,7 +39,19 @@ module.exports = {
                 ]
             },
 
+
+            //TypeScript
+            {
+                test: /\.ts(x)?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/
+            },
+
         ]
+    },
+
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
     },
 
     plugins: [
@@ -96,18 +107,18 @@ module.exports = {
         new WebpackBar({})
     ],
 
-    
-  optimization: {
-    //determine how js modules will be bundled
-    //all npm Packages go to vendor.js,   all my .js files in one bundle and asynchronous modules are placed in each file separately
-    splitChunks: {
-        cacheGroups: {
-          vendors: {
-            test: /node_modules/,
-            chunks: "initial",
-            name: "vendor",
-          },
-        }
-      },
-  }
+
+    optimization: {
+        //determine how js modules will be bundled
+        //all npm Packages go to vendor.js,   all my .js files in one bundle and asynchronous modules are placed in each file separately
+        splitChunks: {
+            cacheGroups: {
+                vendors: {
+                    test: /node_modules/,
+                    chunks: "initial",
+                    name: "vendor",
+                },
+            }
+        },
+    }
 }

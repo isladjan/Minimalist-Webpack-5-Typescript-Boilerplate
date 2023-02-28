@@ -5,7 +5,7 @@ export default class Main {
     }
 
     init() {
-        console.log('Hello from Main.js');
+        console.log('Hello from Main.ts');
     }
 
  }
