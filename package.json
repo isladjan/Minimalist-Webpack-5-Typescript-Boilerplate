@@ -39,8 +39,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "dependencies": {
-    "@types/gsap": "^3.0.0"
-  }
+  ]
 }
